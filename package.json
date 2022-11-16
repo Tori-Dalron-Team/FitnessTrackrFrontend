@@ -1,0 +1,28 @@
+{
+  "name": "fitnesstrackrbackend",
+  "version": "1.0.0",
+  "description": "Steps Done So Far",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tori-Dalron-Team/FitnessTrackrBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tori-Dalron-Team/FitnessTrackrBackend/issues"
+  },
+  "homepage": "https://github.com/Tori-Dalron-Team/FitnessTrackrBackend#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.4.3",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "^5.0.1"
+  }
+}
