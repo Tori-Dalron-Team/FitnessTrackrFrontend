@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import Navbar from "./Navbar";
+import { Outlet } from "react-router-dom"
 
- const Homepage = () => {
-     return (
-         <div>
-             <p>Bonjou!</p>
-         </div>
-     )
- };
+const Homepage = () => {
+    return (
+        <div>
+            <Navbar />
+            <p>Bonjou!</p>
+        </div>
+    )
+};
 
- export default Homepage;
+export default Homepage;

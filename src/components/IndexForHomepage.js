@@ -3,7 +3,7 @@ import React from "react"
 const IndexForHomepage = () => {
     return (
         <div>
-            <p></p>
+            <p>Welcome</p>
         </div>
     )
 };

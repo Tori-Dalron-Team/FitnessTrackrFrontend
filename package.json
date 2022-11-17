@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/Tori-Dalron-Team/FitnessTrackrBackend/issues"
   },
-  "homepage": "https://github.com/Tori-Dalron-Team/FitnessTrackrBackend#readme",
+  "homepage": "/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
