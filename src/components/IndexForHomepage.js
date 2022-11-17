@@ -58,11 +58,15 @@ const IndexForHomepage = () => {
 
     return (
         <div>
+<<<<<<< HEAD
             <div id="nav-container">
                 <h1>Workout Buddys</h1>
                 <Navbar />
             </div>
             <Outlet context={[activities, routines, username, id]}/>
+=======
+            <p>Welcome</p>
+>>>>>>> origin
         </div>
     )
 };
