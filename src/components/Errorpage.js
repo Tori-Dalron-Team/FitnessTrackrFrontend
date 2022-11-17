@@ -3,7 +3,8 @@ import React from "react"
 const ErrorPage = () => {
     return (
         <div>
-            <p>404 Error, please try again.</p>
+            <h2>404 Error, please try again.</h2>
+            <img></img>
         </div>
     )
 };

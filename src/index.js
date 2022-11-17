@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                index: true,
-                element: < />
+                index: Homepage,
+                element: < IndexForHomepage/>
             },
                 // Check the above syntax for what we want to use
             {
