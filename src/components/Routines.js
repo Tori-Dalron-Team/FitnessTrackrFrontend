@@ -22,7 +22,7 @@ const Routines = () => {
                 console.error(error).detail
             }
         }
-       getAllRoutines()
+    getAllRoutines()
         }
     
     ,[])
