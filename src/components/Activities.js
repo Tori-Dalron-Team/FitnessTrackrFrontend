@@ -36,7 +36,7 @@ const Activities = () => {
                 return <div key = {e.id}> 
                     <h3>{e.name}</h3>
                     <p>{e.description}</p>
-            </div>}) : "No Routines Available To Display! "}
+            </div>}) : "No Activities Available To Display! "}
                         
         </div>
 

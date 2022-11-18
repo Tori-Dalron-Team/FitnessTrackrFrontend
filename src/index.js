@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createRoot } from "react-dom/client"
 // Import Pages
 import Activities from "./components/Activities";
+import CreateActivities from "./components/CreateActivities";
+import CreateRoutine from "./components/CreateRoutine";
 import ErrorPage from "./components/Errorpage";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
             {
                 path: "/activities",
                 element: <Activities />
+            },
+            {
+            path: "/createactivities",
+            element: <CreateActivities />
+            },
+            {
+            path: "/createroutine",
+            element: <CreateRoutine />
             },
             {
                 path: "/login",
