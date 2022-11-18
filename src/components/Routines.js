@@ -7,22 +7,21 @@ const apiBaseURL = "https://fitnesstrac-kr.herokuapp.com/api";
 const Routines = () => {
     const [routine, setRoutine] = useState()
     useEffect(()=> {
-    async function getAllRoutines () {
-        try{
-            const data = await fetch(`${apiBaseURL}/routines`, 
-            {
-                headers : {
-                    'Content-Type': 'application/json'
-                }
-            })
-            const results = await data.json()
-            setRoutine(results)
-            console.log(results)
-        } catch(error){
-            console.log(error)
+        async function getAllRoutines () {
+            try{
+                const data = await fetch(`${apiBaseURL}/routines`, 
+                {
+                    headers : {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                const results = await data.json()
+                setRoutine(results)
+                console.log(results)
+            } catch(error){
+                console.error(error).detail
+            }
         }
-        
-       }
        getAllRoutines()
         }
     
@@ -32,7 +31,7 @@ const Routines = () => {
     // Render The State Data To See
     return (
             <div>
-                <h1>Test</h1>
+                <h1>Routines</h1>
                 
                 {routine && routine.length ? routine.map(e => {
                     return <div key = {e.id}> 
@@ -47,8 +46,7 @@ const Routines = () => {
     )
 }
 
-
-
+// Export
 export default Routines;
 
 // i believe we're making a link to go into activities on this page
