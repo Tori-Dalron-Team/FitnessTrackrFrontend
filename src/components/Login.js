@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -46,6 +48,8 @@ function enterPassword(event) {
                 <br />
                 <button type="submit">Login</button>
             </form>
+            <h5>If New User Please <Link to="/register">Register </Link> Here</h5>
+            
         </div>
     )
 };
