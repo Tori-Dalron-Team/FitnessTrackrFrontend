@@ -27,23 +27,23 @@ const router = createBrowserRouter([
             },
                 // Check the above syntax for what we want to use
             {
-                index: "/activities",
+                path: "/activities",
                 element: <Activities />
             },
             {
-                index: "/login",
+                path: "/login",
                 element: <Login />
             },
             {
-                index: "/profile",
+                path: "/profile",
                 element: <Profile />
             },
             {
-                index: "/register",
+                path: "/register",
                 element: <Register />
             },
             {
-                index: "/routines",
+                path: "/routines",
                 element: <Routines />
             },
         ]
