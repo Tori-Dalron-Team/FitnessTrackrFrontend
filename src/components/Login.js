@@ -21,9 +21,9 @@ async function loginRequest(event) {
             })
         })
         const data = await response.json()
-        console.log("translated data:", data)
+        console.log("translated data:", data.token)
             navigate("/profile")
-        localStorage.setItem("token", data.creatorId.token)
+        localStorage.setItem("token", data.token)
     } catch (error) {
         console.log(error)
     }
