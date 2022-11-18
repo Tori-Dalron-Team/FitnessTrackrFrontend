@@ -31,12 +31,12 @@ const Activities = () => {
     return (
         <div>
             <h1>Activities</h1>
-          
+        
             {activity && activity.length ? activity.map(e => {
                 return <div key = {e.id}> 
                     <h3>{e.name}</h3>
                     <p>{e.description}</p>
-            </div>}) : "No Activities Available To Display! "}
+            </div>}) : "No Routines Available To Display! "}
                         
         </div>
 
