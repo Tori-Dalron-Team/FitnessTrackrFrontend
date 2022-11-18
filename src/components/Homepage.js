@@ -21,7 +21,6 @@ useEffect(() => {
         <div>
             <Navbar />
             <Outlet context={[everyonesRoutines, setEveryonesRoutines]} />
-            <p>Test</p>
         </div>
     )
 };
