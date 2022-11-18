@@ -28,33 +28,19 @@ const Routines = () => {
     
     ,[])
 
- 
 
+    // Render The State Data To See
     return (
-        
             <div>
-
-                <h1>
-                    Test
-                </h1>
+                <h1>Test</h1>
                 
                 {routine && routine.length ? routine.map(e => {
-                    return<div key = {e.id}> 
+                    return <div key = {e.id}> 
                         <h2>{e.name}</h2> 
                         <div>{e.goal}</div> 
                         <h4>By: {e.creatorName}</h4> 
                         <h5>Activities</h5>
-                        <div>
-                        
-                        {e.activities && e.activities.length ? e.activities.map((ele) => {
-                            return
-                            <div>
-                                [{ele.name}]
-                            </div>
-                            }) : ""
-                        }
-                        </div>
-                        </div>}) : "No Routines Avaible To Display! "}
+                </div>}) : "No Routines Available To Display! "}
                         
             </div>
 
@@ -64,3 +50,5 @@ const Routines = () => {
 
 
 export default Routines;
+
+// i believe we're making a link to go into activities on this page
