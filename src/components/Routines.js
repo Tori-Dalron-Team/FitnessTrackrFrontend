@@ -39,8 +39,9 @@ const Routines = () => {
                         <div>{e.goal}</div> 
                         <h4>By: {e.creatorName}</h4> 
                         <h5>Activities</h5>
+                        <Link to="/activities">See activities</Link>
                 </div>}) : "No Routines Available To Display! "}
-                        
+                
             </div>
 
     )

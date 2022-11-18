@@ -55,25 +55,25 @@ const IndexForHomepage = () => {
     }, []);
 
     // Fetch Login Status
-    useEffect(() => {
-        async function setProfile() {
-            try {
-                const response = await fetch(`${apiBaseURL}/users/me`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem("token")}`
-                    }
-                })
+    // useEffect(() => {
+    //     async function setProfile() {
+    //         try {
+    //             const response = await fetch(`${apiBaseURL}/users/me`, {
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                     'Authorization': `Bearer ${localStorage.getItem("token")}`
+    //                 }
+    //             })
 
-                const data = await response.json();
-                setUsername(data.username);
-                setId(data.Id);
-            } catch (error) {
-                console.error
-            }
-        }
-        setProfile();
-    }, [currentToken]);
+    //             const data = await response.json();
+    //             setUsername(data.username);
+    //             setId(data.Id);
+    //         } catch (error) {
+    //             console.error
+    //         }
+    //     }
+    //     setProfile();
+    // }, []);
 
         // Render the State Data
     return (

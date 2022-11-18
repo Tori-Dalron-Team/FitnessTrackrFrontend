@@ -18,12 +18,12 @@ const CreateActivities = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch(`${apiBaseURL}/activities`,{
+            const response = await fetch(`${apiBaseURL}/activities`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${currentToken}`
-                  },
+                },
                 body: JSON.stringify({
                     name: name,
                     description: description
@@ -75,13 +75,13 @@ const CreateActivities = () => {
 
                 <button type="submit">Create</button>
 
-                {newActivityName && newActivityName.length ? 
+                {/* {newActivityName && newActivityName.length ? 
                     <div>
                         <p>{newActivityName}</p>
                         <p>{newActivityDescription}</p>
                         <p>{errorOne}</p>
                     </div> : null
-                }
+                } */}
                 
             </form>
         </div>

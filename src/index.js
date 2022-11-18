@@ -33,12 +33,12 @@ const router = createBrowserRouter([
                 element: <Activities />
             },
             {
-            path: "/createactivities",
-            element: <CreateActivities />
+                path: "/createactivities",
+                element: <CreateActivities />
             },
             {
-            path: "/createroutine",
-            element: <CreateRoutine />
+                path: "/createroutine",
+                element: <CreateRoutine />
             },
             {
                 path: "/login",
