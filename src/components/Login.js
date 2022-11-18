@@ -14,10 +14,10 @@ async function loginRequest(event) {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                user: {
+                
                     username: username,
                     password: password
-                }
+                
             })
         })
         const data = await response.json()
