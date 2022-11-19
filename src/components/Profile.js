@@ -3,33 +3,35 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-    const [personalRoutines, setPersonalRoutines] = useState([]);
+    const [personalRoutines, setPersonalRoutines] = useOutletContext()
     const [allRoutines, setAllRoutines] = useOutletContext()
     const [allActivities, setAllActivities] = useOutletContext()
     const [personalActivities, setPersonalActivities] = useState([]);
     const [routineArray, setRoutineArray] = useState([]);
     const [activitiesArray, setActivitiesArray] = useState([])
+    const [activity, setActivity] = useState([]);
+
+    // useEffect(() => {
+    //     if (personalRoutines) {
+    //         const routArray = personalRoutines.filter((name) => {
+    //             console.log("this is name", personalRoutines)
+    //             return name.goal
+    //         })
+    //         setRoutineArray(routArray)
+    //     }
+    // }, [personalRoutines])
+    // useEffect(() => {
+    //     if (personalActivities) {
+    //         const actArray = personalActivities.filter((name) => {
+    //             return name.description 
+    //         })
+    //         setActivitiesArray(actArray)
+    //     }
+    // }, [personalActivities])
 
     useEffect(() => {
-        if (personalRoutines.length) {
-            const routArray = personalRoutines.filter((name) => {
-                console.log("this is name", personalRoutines)
-                return name.goal
-            })
-            setRoutineArray(routArray)
-        }
-    }, [personalRoutines])
-    useEffect(() => {
-        if (personalActivities) {
-            const actArray = personalActivities.filter((name) => {
-                return name.description 
-            })
-            setActivitiesArray(actArray)
-        }
-    }, [personalActivities])
-    useEffect(() => {
-        async function profileInfo(event) {
-            event.preventDefault()
+        async function profileInfo() {
+            
             try {
                 const response = await fetch("http://fitnesstrac-kr.herokuapp.com/api/users/me", {
                     headers: {
