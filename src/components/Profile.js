@@ -4,22 +4,32 @@ import { Link } from "react-router-dom";
 
 const Profile = () => {
     const [personalRoutines, setPersonalRoutines] = useState([]);
-    const [allRoutines, setAllRoutines] = useState([]);
-    const [allActivities, setAllActivities] = useState([]);
+    const [allRoutines, setAllRoutines] = useOutletContext()
+    const [allActivities, setAllActivities] = useOutletContext()
     const [personalActivities, setPersonalActivities] = useState([]);
-    const [filterArray, setFilterArray] = useState([]);
+    const [routineArray, setRoutineArray] = useState([]);
+    const [activitiesArray, setActivitiesArray] = useState([])
 
     useEffect(() => {
-        if (personalRoutines) {
-            const newArray = personalRoutines.filter((routine) => {
-                return routine.active
+        if (personalRoutines.length) {
+            const routArray = personalRoutines.filter((name) => {
+                console.log("this is name", personalRoutines)
+                return name.goal
             })
-            setFilterArray(newArray)
+            setRoutineArray(routArray)
         }
     }, [personalRoutines])
-
+    useEffect(() => {
+        if (personalActivities) {
+            const actArray = personalActivities.filter((name) => {
+                return name.description 
+            })
+            setActivitiesArray(actArray)
+        }
+    }, [personalActivities])
     useEffect(() => {
         async function profileInfo(event) {
+            event.preventDefault()
             try {
                 const response = await fetch("http://fitnesstrac-kr.herokuapp.com/api/users/me", {
                     headers: {
@@ -28,7 +38,8 @@ const Profile = () => {
                     }
                 })
                 const data = await response.json()
-                setPersonalRoutines(data.routine)
+                setPersonalRoutines(data.name)
+                setPersonalActivities(data.name)
             } catch (error) {
                 console.log(error)
             }
@@ -40,13 +51,24 @@ const Profile = () => {
             <h3>Profile page</h3>
             <div>
                 {
-                    filterArray.length ? filterArray.map((routine, idx) =>{
+                    routineArray.length ? routineArray.map((routine, idx) =>{
                         return <div key={idx}>
-                            <p>Your Routines: {routine.name}</p>
+                            <p>Your Routines: {goal}</p>
                         </div>
                     }) : <p>There are no Routines to view</p>
                 }
+                </div>
+                <div>
+                {
+                    activitiesArray.length ? activitiesArray.map((activity, idx) => {
+                        return <div key={idx}>
+                            <p>Your Activities: {duration}</p>
+                        </div>
+                    }) : <p>There are no Activities to view</p>
+                }
             </div>
+            <div><Link to="/createroutine">Create New Routine</Link></div>
+            <div><Link to="/createactivities">Create New Activity</Link></div>
         </div>
     )
 };
