@@ -90,9 +90,14 @@ const Profile = () => {
     }, [myProfile])
     return (
         <div>
+<<<<<<< HEAD
+            <h3 id="profile">My Profile</h3>
+            <div id="profile-items">
+=======
             <h3>Profile page</h3>
             <div>
                 <h3>Your Routines</h3>
+>>>>>>> f6a6d5609eb25b2a0597dbff68569cfc5e81228d
                 {
                     routineArray.length ? routineArray.map((routine, idx) =>{
                         return <div key={idx}>
@@ -104,8 +109,12 @@ const Profile = () => {
                     }) : <p>There are no Routines to view</p>
                 }
                 </div>
+<<<<<<< HEAD
+                <div id="profile-items">
+=======
                 <div>
                     <h3>Your Activities</h3>
+>>>>>>> f6a6d5609eb25b2a0597dbff68569cfc5e81228d
                 {
                     activitiesArray.length ? activitiesArray.map((activity, idx) => {
                         return <div key={idx}>
@@ -115,8 +124,8 @@ const Profile = () => {
                     }) : <p>There are no Activities to view</p>
                 }
             </div>
-            <div><Link to="/createroutine">Create New Routine</Link></div>
-            <div><Link to="/createactivities">Create New Activity</Link></div>
+            <div id="profile-items"><Link to="/createroutine">Create New Routine</Link></div>
+            <div id="profile-items"><Link to="/createactivities">Create New Activity</Link></div>
         </div>
     )
 };
