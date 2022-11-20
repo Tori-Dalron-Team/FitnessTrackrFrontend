@@ -1,7 +1,109 @@
 body {
-    background-color: green;
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
-/* .nav-container {
-    
-} */
+/* Navbar.js */
+#navbar {
+    background-color: white;
+    border-bottom-style: none;
+    font-size: 20px;
+    font-weight: 500;
+    height:  30px;
+    letter-spacing: 8px;
+    text-align: center;
+    text-decoration: none;
+  
+}
+
+#navbar-text {
+    border: 3px solid orange;
+    font-display: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 30px;
+    text-align: center
+;
+    /* word-spacing: 25px;
+    - how to makae the border box thinner/smaller*/
+}
+
+/* Index For Homepage.js  */
+.indexforhomepage-container {
+    color: orange;
+    font-size: 40px;
+    text-align: left;
+    /* want topush this container to the left with a little margin */
+}
+
+.indexforhomepage-header {
+    text-align: center;
+}
+
+.indexforhomepage-logo {
+    color: orange;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    /* want to push this section the the left end of the text block */
+
+}
+
+.indexforhomepage-main {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.indexforhomepage-one {
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: 50;
+    letter-spacing: 2px;
+    margin-left: 4px;
+}
+
+.indexforhomepage-two {
+    color:orange;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: 50;
+    letter-spacing: 2px;
+    margin-left: 4px;
+}
+
+/* Login.js */
+.login {
+    color: orange;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 90px;
+}
+
+#login-disclaimer  {
+    color: orange;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+#login-form {
+    align-items: center;
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+    justify-content: center;
+    text-align: center;
+    /* i'd love to make this more symetrical.  they don't match
+    not sure if i like this font but ehh*/
+}
+
+/* Routines.js */
+.routines {
+    columns: white;
+    margin-top: 50px;
+    text-align: center;
+}

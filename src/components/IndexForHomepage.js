@@ -78,8 +78,43 @@ const IndexForHomepage = () => {
         // Render the State Data
     return (
         <div>
-            <div id="nav-container">
-                <h1>Fitness Trackr</h1>
+            <div class="indexforhomepage-container">
+                <h1 class="indexforhomepage-header">Welcome to Fitness Trackr</h1>
+                <br></br>
+                <br></br>
+                <br></br>
+                <div class="indexforhomepage-main">Login or Register</div>
+                <div class="indexforhomepage-main">to get Started!</div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
+                <div>
+                    <div class="indexforhomepage-logo">
+                        Fitness Trackr
+                    </div>
+                </div>
+
+                <div>
+                    <div class="indexforhomepage-one">
+                        Fitness training is our</div>
+                        <div class="indexforhomepage-one">
+                        foundation, always.</div>
+
+
+                        <div class="indexforhomepage-two">
+                        But with friends it's</div>
+                        <div class="indexforhomepage-two">
+                        now easier than ever.</div>
+
+
+                </div>
 
             </div>
             <Outlet context={[activities, routines, username, id]}/>
