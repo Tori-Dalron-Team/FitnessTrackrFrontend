@@ -22,7 +22,7 @@ const Register = () => {
             })
             const data = await response.json()
             console.log("translated data:", data)
-            localStorage.setItem("token", data.id.token)
+            localStorage.setItem("token", data)
         } catch (error) {
             console.log(error)
         }
