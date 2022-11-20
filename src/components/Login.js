@@ -38,17 +38,24 @@ function enterPassword(event) {
     setPassword(event.target.value)
 }
     return (
+        
         <div>
-            <form onSubmit={loginRequest}>
-                <label>Enter Username</label>
-                <input type="text" value={username} onChange={enterUsername}></input>
-                <br />
-                <label>Enter Password</label>
-                <input type="text" value={password} onChange={enterPassword}></input>
-                <br />
-                <button type="submit">Login</button>
-            </form>
-            <h5>If New User Please <Link to="/register">Register </Link> Here</h5>
+            <br></br>
+            <div class="login">Sign in to Fitness Trackr</div>
+            <br></br>
+
+                <div id="login-form">
+                    <form onSubmit={loginRequest}>
+                        <label>Enter Username: </label>
+                        <input type="text" value={username} onChange={enterUsername}></input>
+                        <br></br>
+                        <label>Enter Password: </label>
+                        <input type="text" value={password} onChange={enterPassword}></input>
+                        <br />
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            <h5 id="login-disclaimer">If New User Please <Link to="/register">Register </Link> Here</h5>
             
         </div>
     )
