@@ -3,11 +3,16 @@ import { useOutletContext, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 // URL to make template literal
-const apiBaseURL = "https://fitnesstrac-kr.herokuapp.com/api";
+
+
 
 const CreateRoutine = () => {
+    const apiBaseURL = "http://fitnesstrac-kr.herokuapp.com/api";
+    const [routine, setRoutine] = useOutletContext()
+    const [everyonesRoutines, setEveryonesRoutines] = useOutletContext()
     const [goal, setGoal] = useState('');
-    const [isPublic, setIsPublic] = useState(false);
+    const [isPublic, setIsPublic] = useState(true);
+
     const [name, setName] = useState('');
     // const {routinesObj: [routines, setRoutines]} = useOutletContext();
         // attaching activities?
@@ -19,16 +24,20 @@ const CreateRoutine = () => {
         event.preventDefault();
 
         try {
-            if (!localStorage.getItem("token")) {
-              alert("Log in to create a routine. Register below if you don't have an account. ")
-              return;
-            }
+
+            // if (!localStorage.getItem("token")) {
+            // alert("Log in to create a routine. Register below if you don't have an account. ")
+            // return;
+            // }
+
             const response = await fetch(`${apiBaseURL}/routines`,
             {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${currentToken}`
+
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`
+
                 },
                 body: JSON.stringify({
                     name, goal, isPublic
@@ -39,32 +48,34 @@ const CreateRoutine = () => {
             // Callbacks
             console.log(data)
 
-            setRoutines([...routines, data])
+
+            setEveryonesRoutines([everyonesRoutines, data])
 
             if (data.id){
                 navigate('/routines');
-              }
-              
-            } catch (error) {
-              console.log(error);
             }
-          }
+            
+            } catch (error) {
+            console.log(error);
+            }
+        }
+
 
     // FNs
     function updateRoutineName(event) {
         setName(event.target.value)
-        console.log(name)
-      }
-      function updateRoutineGoal(event) {
+
+    }
+    function updateRoutineGoal(event) {
         setGoal(event.target.value)
-        console.log(goal)
-      }
-      function updateIsPublic(event) {
+    }
+    function updateIsPublic(event) {
         setIsPublic(event.target.checked)
-        console.log('isChecked:', event.target.checked)
-        console.log('!isChecked:', !event.target.checked)
-        console.log('isPublic:', isPublic)
-      }
+        // console.log('isChecked:', event.target.checked)
+        // console.log('!isChecked:', !event.target.checked)
+        // console.log('isPublic:', isPublic)
+    }
+
     
     // Render
     return (
@@ -96,14 +107,16 @@ const CreateRoutine = () => {
 
                 <button type="submit">Create</button>
 
-                {name && name.length ? 
+
+                {/* {name && name.length ? 
+
                     <div>
                         <p>{name}</p>
                         <p>{goal}</p>
                         <p>{isPublic}</p>
-                    </div> : null
-                }
-            
+
+                } */}
+
             </form>
         </div>
     )
