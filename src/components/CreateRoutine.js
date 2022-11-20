@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 // URL to make template literal
 
 
+
 const CreateRoutine = () => {
     const apiBaseURL = "http://fitnesstrac-kr.herokuapp.com/api";
     const [routine, setRoutine] = useOutletContext()
     const [everyonesRoutines, setEveryonesRoutines] = useOutletContext()
     const [goal, setGoal] = useState('');
     const [isPublic, setIsPublic] = useState(true);
+
     const [name, setName] = useState('');
     // const {routinesObj: [routines, setRoutines]} = useOutletContext();
         // attaching activities?
@@ -22,16 +24,20 @@ const CreateRoutine = () => {
         event.preventDefault();
 
         try {
+
             // if (!localStorage.getItem("token")) {
             // alert("Log in to create a routine. Register below if you don't have an account. ")
             // return;
             // }
+
             const response = await fetch(`${apiBaseURL}/routines`,
             {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
+
                     'Authorization': `Bearer ${localStorage.getItem("token")}`
+
                 },
                 body: JSON.stringify({
                     name, goal, isPublic
@@ -41,6 +47,7 @@ const CreateRoutine = () => {
 
             // Callbacks
             console.log(data)
+
 
             setEveryonesRoutines([everyonesRoutines, data])
 
@@ -53,9 +60,11 @@ const CreateRoutine = () => {
             }
         }
 
+
     // FNs
     function updateRoutineName(event) {
         setName(event.target.value)
+
     }
     function updateRoutineGoal(event) {
         setGoal(event.target.value)
@@ -66,6 +75,7 @@ const CreateRoutine = () => {
         // console.log('!isChecked:', !event.target.checked)
         // console.log('isPublic:', isPublic)
     }
+
     
     // Render
     return (
@@ -97,14 +107,16 @@ const CreateRoutine = () => {
 
                 <button type="submit">Create</button>
 
+
                 {/* {name && name.length ? 
+
                     <div>
                         <p>{name}</p>
                         <p>{goal}</p>
                         <p>{isPublic}</p>
-                    </div> : null
+
                 } */}
-            
+
             </form>
         </div>
     )
