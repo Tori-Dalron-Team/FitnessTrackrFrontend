@@ -14,7 +14,7 @@ const EditRoutine = () => {
     async function editRoutine(event) {
         event.preventDefault()
         try {
-            const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
+            const response = await fetch(`https://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const EditRoutine = () => {
             const editedRoutine = await fetch("http://fitnesstrac-kr.herokuapp.com/api/routines")
             const updatedTranslation = await editedRoutine.json()
             setPersonalRoutines(updatedTranslation)
-            setEveryonesRoutines(updatedTranslation)
+            // setEveryonesRoutines(updatedTranslation)
             navigate("/profile")
         } catch (error) {
             console.log(error)
@@ -55,7 +55,7 @@ const EditRoutine = () => {
                 <label>Edit Routine Goal:</label>
                 <input type="text" value={editGoal} onChange={editedGoal}></input>
                 <br />
-                <label>Chnage To Private</label>
+                <label>Change To Private</label>
                 <input type="checkbox" value={isPublic} onChange={editIsPublic}></input>
                 <br />
                 <button type="submit">Edit</button>

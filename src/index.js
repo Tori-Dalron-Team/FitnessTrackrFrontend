@@ -14,7 +14,7 @@ import Profile from "./components/Profile";
 import Register from "./components/Register";
 import Routines from "./components/Routines";
 import IndexForHomepage from "./components/IndexForHomepage";
-import EditRoutine from "./components/EditRoutine"
+import EditRoutine from "./components/EditRoutine";
 import EditActivity from "./components/EditActivities";
 
 

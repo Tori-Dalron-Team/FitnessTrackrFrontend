@@ -11,6 +11,8 @@ const Profile = () => {
     const [activitiesArray, setActivitiesArray] = useState([])
     const [activity, setActivity] = useState([]);
     const [myProfile, setMyProfile] = useOutletContext();
+   
+
     
 
 
@@ -25,13 +27,13 @@ const Profile = () => {
     }, [personalRoutines])
     useEffect(() => {
         if (personalActivities.length) {
-            const newActivityArray = personalActivities.filter((description) => {
+            const newActivityArray = personalActivities.filter((name) => {
                 
-                return description
+                return name
             })
             setActivitiesArray(newActivityArray)
         }
-    }, [personalRoutines])
+    }, [personalActivities])
     useEffect(() => {
         if(localStorage.getItem("token")) {
             async function profileInfo() {
