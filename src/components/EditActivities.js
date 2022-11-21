@@ -4,8 +4,8 @@ import { useOutletContext, useNavigate, useParams } from 'react-router';
 
 const EditActivity = () => {
     const [isPublic, setIsPublic] = useState(true);
-    const [editName, setEditName] = useState("");
-    const [editDescription, setEditDescription] = useState("");
+    const [editCount, setEditcount] = useState("");
+    const [editDuration, setEditDuration] = useState("");
     const [personalActivities, setPersonalActivities] = useOutletContext();
     const [everyonesActivities, setEveryonesActivities] = useOutletContext();
     const { id } = useParams();
@@ -22,13 +22,13 @@ const EditActivity = () => {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify({
-                name: editName,
-                description: editDescription
+                count: editCount,
+                description: editDuration
             })
             })
             const editedActivities = await fetch("http://fitnesstrac-kr.herokuapp.com/api/activities")
             const updatedATranslation = await editedActivities.json()
-            setPersonalActivities(updatedATranslation)
+            // setPersonalActivities(updatedATranslation)
             setEveryonesActivities(updatedATranslation)
             navigate("/profile")
         } catch (error) {
@@ -37,20 +37,20 @@ const EditActivity = () => {
     }
 
 
-    function editedName(event) {
+    function editedCount(event) {
         setEditName(event.target.value)
     }
-    function editedDescription(event) {
+    function editedDuration(event) {
         setEditDescription(event.target.value)
     }
     return (
         <div>
             <form onSubmit={editActivity}>
                 <label>Edit Activity Count:</label>
-                <input type="text" value={editName} onChange={editedName}></input>
+                <input type="text" value={editCount} onChange={editedCount}></input>
                 <br />
                 <label>Edit Activity Duration:</label>
-                <input type="text" value={editDescription} onChange={editedDescription}></input>
+                <input type="text" value={editDuration} onChange={editedDuration}></input>
                 <br />
                 <button type="submit">Edit</button>
             </form>
