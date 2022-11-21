@@ -31,12 +31,13 @@ const Activities = () => {
     return (
         <div id="activities-container">
             <h1 id="activities-container">Activities</h1>
-        
+                <div id="activities-container">
             {activity && activity.length ? activity.map(e => {
-                return <div key = {e.id}> 
-                    <h3 id="activities-container">{e.name}</h3>
+                return <div key = {e.id} id="activities-container2"> 
+                    <h3>{e.name}</h3>
                     <p>{e.description}</p>
             </div>}) : "No Activities Available To Display! "}
+            </div>
                         
         </div>
 

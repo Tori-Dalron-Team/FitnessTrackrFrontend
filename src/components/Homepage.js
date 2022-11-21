@@ -13,25 +13,25 @@ const Homepage = () => {
     const [myprofile, setMyProfile] = useState({})
     
     
-useEffect(() => {
-    async function getAllRoutines () {
-        try {
-            const response = await fetch("http://fitnesstrac-kr.herokuapp.com/api/routines", {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            const data = await response.json()
-            console.log(data)
-            setEveryonesRoutines(data)
-            // console.log(data.id)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    getAllRoutines()
+// useEffect(() => {
+//     async function getAllRoutines () {
+//         try {
+//             const response = await fetch("http://fitnesstrac-kr.herokuapp.com/api/routines", {
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 }
+//             })
+//             const data = await response.json()
+//             console.log(data)
+//             setEveryonesRoutines(data)
+//             // console.log(data.id)
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+//     getAllRoutines()
 
-}, [])
+// }, [])
 useEffect(() => {
 async function getAllActivities() {
     try {

@@ -11,11 +11,11 @@ const CreateRoutine = () => {
     const [routine, setRoutine] = useOutletContext()
     const [everyonesRoutines, setEveryonesRoutines] = useOutletContext()
     const [goal, setGoal] = useState('');
-    const [isPublic, setIsPublic] = useState(true);
+    const [isPublic, setIsPublic] = useState(false);
     const [personalRoutines, setPersonalRoutines] = useOutletContext()
-
     const [name, setName] = useState('');
-    // const {routinesObj: [routines, setRoutines]} = useOutletContext();
+
+    // const [routines, setRoutines] = useOutletContext();
         // attaching activities?
 
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const CreateRoutine = () => {
             console.log(data)
 
 
-            setEveryonesRoutines([everyonesRoutines, data])
+            setEveryonesRoutines([everyonesRoutines.data])
 
 
             if (data.id){
@@ -101,8 +101,8 @@ const CreateRoutine = () => {
                 <br />
 
 
-                <label>Visable to Public: </label>
-                <input required placeholder="Make Public" value={isPublic} onChange={updateIsPublic} type="text"/>
+                <label>Make Routine Private: </label>
+                <input required placeholder="Make Public" value={isPublic} onChange={updateIsPublic} type="checkbox"/>
             
                 <br />
                 <br />
