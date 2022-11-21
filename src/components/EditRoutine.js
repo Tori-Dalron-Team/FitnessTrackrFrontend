@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useOutletContext, useNavigate, useParams } from 'react-router-dom';
 
 
@@ -8,14 +8,17 @@ const EditRoutine = () => {
     const [editGoal, setEditGoal] = useState("");
     const [everyonesRoutines, setEveryonesRoutines] = useOutletContext();
     const [personalRoutines, setPersonalRoutines] = useOutletContext();
-    const [routine, setRoutine] = useOutletContext()
+    const [routine, setRoutine] = useOutletContext();
+    const [myProfile, setMyProfile] = useOutletContext();
+
     const { id } = useParams();
     const navigate = useNavigate()
+
 
     async function editRoutine(event) {
         event.preventDefault()
         try {
-            const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
+            const response = await fetch(`https://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,11 +29,15 @@ const EditRoutine = () => {
                     goal: editGoal
             })
             })
+            
             const editedRoutine = await fetch("http://fitnesstrac-kr.herokuapp.com/api/routines")
+            console.log(editedRoutine)
             const updatedTranslation = await editedRoutine.json()
             console.log(updatedTranslation)
-            setRoutine(updatedTranslation)
-            // setEveryonesRoutines(updatedTranslation)
+            // setRoutine([routine, updatedTranslation])
+            setEveryonesRoutines(everyonesRoutines, updatedTranslation)
+            setPersonalRoutines(personalRoutines, updatedTranslation)
+            console.log(personalRoutines)
             navigate("/profile")
         } catch (error) {
             console.log(error)
@@ -50,7 +57,7 @@ const EditRoutine = () => {
 
     return (
         <div>
-            <form onSubmit={editRoutine}>
+            <form onSubmit={editRoutine} id="edit-routine">
                 <label>Edit Routine Name:</label>
                 <input type="text" value={editName} onChange={editedName}></input>
                 <br />

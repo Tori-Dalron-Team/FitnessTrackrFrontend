@@ -59,7 +59,7 @@ const router = createBrowserRouter([
                 element: <Routines />
             },
             {
-                path: "/editroutine/:routineId",
+                path: "/editroutine/:id",
                 element: <EditRoutine />
             }
             

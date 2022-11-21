@@ -35,7 +35,7 @@ const Register = () => {
         setPassword(event.target.value)
     }
     return (
-        <div>
+        <div id="register-container">
             <form onSubmit={newRegisterForm}>
                 <label>Enter New Username</label>
                 <input type="text" value={username} onChange={newUsername}></input>

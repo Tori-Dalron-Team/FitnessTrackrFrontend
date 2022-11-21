@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useOutletContext, useNavigate, Navigate } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
@@ -13,7 +13,6 @@ const Profile = () => {
     const [routine, setRoutine] = useOutletContext()
     const [everyonesRoutines, setEveryonesRoutines] = useOutletContext();
     const navigate = useNavigate();
-   
 
     
 
@@ -141,25 +140,25 @@ const Profile = () => {
                 </div>
 
 
-                <div id="profile-items">
+                <div id="profile-items"></div>
 
-                <div>
+                
 
-                    <h3>Your Activities</h3>
+            
 
-                {
+                {/* {
                     activitiesArray.length ? activitiesArray.map((activity, idx) => {
                         return <div key={idx}>
                             <p>{activity.name}</p>
                             <Link to={`/editactivities/${activity.activityId}`}>Edit Activity</Link>
                         </div>
                     }) : <p>There are no Activities to view</p>
-                }
+                } */}
 
-            </div>
+            
             <div id="profile-items"><Link to="/createroutine">Create New Routine</Link></div>
             <div id="profile-items"><Link to="/createactivities">Create New Activity</Link></div>
-
+                <button onClick={logOut}>Log Out</button>
         </div>
     )
 };

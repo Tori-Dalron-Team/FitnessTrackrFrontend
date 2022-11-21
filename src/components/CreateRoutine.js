@@ -12,6 +12,7 @@ const CreateRoutine = () => {
     const [everyonesRoutines, setEveryonesRoutines] = useOutletContext()
     const [goal, setGoal] = useState('');
     const [isPublic, setIsPublic] = useState(true);
+    const [personalRoutines, setPersonalRoutines] = useOutletContext()
 
     const [name, setName] = useState('');
     // const {routinesObj: [routines, setRoutines]} = useOutletContext();
@@ -51,8 +52,9 @@ const CreateRoutine = () => {
 
             setEveryonesRoutines([everyonesRoutines, data])
 
+
             if (data.id){
-                navigate('/routines');
+                navigate('/profile');
             }
             
             } catch (error) {
