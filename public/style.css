@@ -104,6 +104,66 @@ body {
 /* Routines.js */
 .routines {
     columns: white;
+    font-size: 50px;
     margin-top: 50px;
     text-align: center;
 }
+
+#routines-title {
+    color: orange;
+    font-size: 23px;
+    text-align: center;
+
+}
+#routines-goal {
+    font-size: 18px;
+    text-align: center;
+
+}
+
+#routines-creator {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+#routines-activities {
+    text-align: center;
+    /* margin-top: 22px;
+    top: 5px; */
+    /* i want to spread this out somehow */
+}
+
+#routines-link {
+    text-align: center;
+    /* i can't get this link centered */
+}
+
+#routines-error {
+    font-size: 40px;
+    text-align: center;
+    /* : no routines avaible to display */
+}
+
+
+/* Profile.js */
+
+#profile {
+    color: orange;
+    font-size: 50px;
+    margin-top: 50px;
+    text-align: center;
+
+
+}
+
+#profile-items {
+    font-size: 23px;
+    text-align: center;
+}
+
+
+/* To Do */
+    /* all the hyperlinks color don't match, figure this out */
+    /* fix the navbar */

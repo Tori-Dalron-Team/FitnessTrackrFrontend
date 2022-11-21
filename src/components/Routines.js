@@ -34,12 +34,12 @@ const Routines = () => {
                 <h1 class="routines">Routines</h1>
                 
                 {routine && routine.length ? routine.map(e => {
-                    return <div id="routines-" key = {e.id}> 
-                        <h2>{e.name}</h2> 
-                        <div>{e.goal}</div> 
-                        <h4>By: {e.creatorName}</h4> 
-                        <h5>Activities</h5>
-                        <Link to="/activities">See activities</Link>
+                    return <div id="routines" key = {e.id}> 
+                        <h2 id="routines-title">{e.name}</h2> 
+                        <div id="routines-goal">{e.goal}</div> 
+                        <h4 id="routines-creator">By: {e.creatorName}</h4> 
+                        <h5 id="routines-activities">Activities</h5>
+                        <div id="routines-link"><Link to="/activities">See activities</Link></div>
                 </div>}) : "No Routines Available To Display! "}
                 
             </div>
