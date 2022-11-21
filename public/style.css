@@ -6,10 +6,9 @@ body {
 /* Navbar.js */
 #navbar {
     background-color: white;
-    border-bottom-style: none;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
-    height:  30px;
+    height:  60px;
     letter-spacing: 8px;
     text-align: center;
     text-decoration: none;
@@ -17,15 +16,31 @@ body {
 }
 
 #navbar-text {
-    border: 3px solid orange;
+    /* border: 3px solid orange; */
+    border-radius: 15px ;
     font-display: center;
+    font-style:normal;
+    font-size: 30px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 30px;
-    text-align: center
+    text-align: center;
 ;
     /* word-spacing: 25px;
     - how to makae the border box thinner/smaller*/
 }
+
+/* Error Page */
+.error {
+    font-size: 50px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#error-card {
+    height: 50%;
+    width: 50%;
+}
+/* can't make this smaller or center the image */
 
 /* Index For Homepage.js  */
 .indexforhomepage-container {
