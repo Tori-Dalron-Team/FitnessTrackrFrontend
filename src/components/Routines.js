@@ -39,7 +39,7 @@ const Routines = () => {
                         <h2 id="routines-title">{e.name}</h2> 
                         <div id="routines-goal">{e.goal}</div> 
                         <h4 id="routines-creator">By: {e.creatorName}</h4> 
-                        {/* <h5 id="routines-activities">Activities</h5> */}
+                        
                         
                 </div>}) : "No Routines Available To Display! "}
                 
