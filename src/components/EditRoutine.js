@@ -3,11 +3,11 @@ import { useOutletContext, useNavigate, useParams } from 'react-router-dom';
 
 
 const EditRoutine = () => {
-    const [isPublic, setIsPublic] = useState(true);
+    const [isPublic, setIsPublic] = useState(false);
     const [editName, setEditName] = useState("");
     const [editGoal, setEditGoal] = useState("");
-    const [everyonesRoutines, setEveryonesRoutines] = useOutletContext();
-    const [personalRoutines, setPersonalRoutines] = useOutletContext();
+    const [everyonesRoutines, setEveryonesRoutines] = useState([]);
+    const [personalRoutines, setPersonalRoutines] = useState([]);
     const [routine, setRoutine] = useOutletContext();
     const [myProfile, setMyProfile] = useOutletContext();
 
@@ -19,11 +19,12 @@ const EditRoutine = () => {
         event.preventDefault()
         try {
             const response = await fetch(`https://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
-                method: "PATCH",
+                
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem("token")}`
                 },
+                method: "PATCH",
                 body: JSON.stringify({
                     name: editName,
                     goal: editGoal
@@ -35,8 +36,8 @@ const EditRoutine = () => {
             const updatedTranslation = await editedRoutine.json()
             console.log(updatedTranslation)
             // setRoutine([routine, updatedTranslation])
-            setEveryonesRoutines(everyonesRoutines, updatedTranslation)
-            setPersonalRoutines(personalRoutines, updatedTranslation)
+            setEveryonesRoutines(updatedTranslation)
+            setPersonalRoutines(updatedTranslation)
             console.log(personalRoutines)
             navigate("/profile")
         } catch (error) {
@@ -64,7 +65,7 @@ const EditRoutine = () => {
                 <label>Edit Routine Goal:</label>
                 <input type="text" value={editGoal} onChange={editedGoal}></input>
                 <br />
-                <label>Change To Private</label>
+                <label>Change To Public</label>
                 <input type="checkbox" value={isPublic} onChange={editIsPublic}></input>
                 <br />
                 <button type="submit">Edit</button>
