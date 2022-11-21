@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useOutletContext, useNavigate, useParams } from 'react-router';
+import { useOutletContext, useNavigate, useParams } from 'react-router-dom';
 
 
 const EditRoutine = () => {
@@ -8,13 +8,14 @@ const EditRoutine = () => {
     const [editGoal, setEditGoal] = useState("");
     const [everyonesRoutines, setEveryonesRoutines] = useOutletContext();
     const [personalRoutines, setPersonalRoutines] = useOutletContext();
+    const [routine, setRoutine] = useOutletContext()
     const { id } = useParams();
     const navigate = useNavigate()
 
     async function editRoutine(event) {
         event.preventDefault()
         try {
-            const response = await fetch(`https://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
+            const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +28,8 @@ const EditRoutine = () => {
             })
             const editedRoutine = await fetch("http://fitnesstrac-kr.herokuapp.com/api/routines")
             const updatedTranslation = await editedRoutine.json()
-            setPersonalRoutines(updatedTranslation)
+            console.log(updatedTranslation)
+            setRoutine(updatedTranslation)
             // setEveryonesRoutines(updatedTranslation)
             navigate("/profile")
         } catch (error) {

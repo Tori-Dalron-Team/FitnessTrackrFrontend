@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useOutletContext, useNavigate, Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-    const [personalRoutines, setPersonalRoutines] = useOutletContext()
-    const [allRoutines, setAllRoutines] = useOutletContext()
+    const [personalRoutines, setPersonalRoutines] = useOutletContext();
     const [allActivities, setAllActivities] = useOutletContext()
     const [personalActivities, setPersonalActivities] = useState([]);
     const [routineArray, setRoutineArray] = useState([]);
     const [activitiesArray, setActivitiesArray] = useState([])
     const [activity, setActivity] = useState([]);
     const [myProfile, setMyProfile] = useOutletContext();
+    const [routine, setRoutine] = useOutletContext()
+    const [everyonesRoutines, setEveryonesRoutines] = useOutletContext();
+    const navigate = useNavigate();
    
 
     
@@ -25,15 +27,15 @@ const Profile = () => {
             setRoutineArray(newArray)
         }
     }, [personalRoutines])
-    useEffect(() => {
-        if (personalActivities.length) {
-            const newActivityArray = personalActivities.filter((name) => {
+    // useEffect(() => {
+    //     if (personalActivities.length) {
+    //         const newActivityArray = personalActivities.filter((name) => {
                 
-                return name
-            })
-            setActivitiesArray(newActivityArray)
-        }
-    }, [personalActivities])
+    //             return name
+    //         })
+    //         setActivitiesArray(newActivityArray)
+    //     }
+    // }, [personalActivities])
     useEffect(() => {
         if(localStorage.getItem("token")) {
             async function profileInfo() {
@@ -71,50 +73,80 @@ const Profile = () => {
         if(myProfile.username) {myRoutines()}
     }, [myProfile]);
 
-    useEffect(() => {
-        async function myActivities() {
+        async function deleteButton(id) {
             try {
-                const response = await fetch (`https://fitnesstrac-kr.herokuapp.com/api/activities/${myProfile.username}/routines`, {
+                const response = await fetch (`http://fitnesstrac-kr.herokuapp.com/api/routines/${id}`, {
+                    method: "DELETE",
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem("token")}`
                     }
                 })
-                const data = await response.json();
+                const data = await response.json()
                 console.log(data)
-                setPersonalActivities(data)
+                setEveryonesRoutines(everyonesRoutines.filter((routine) => {
+                    return routine.id != id
+                }))
+                setPersonalRoutines(personalRoutines.filter((routine) => {
+                    return routine.id != id
+                }))
+                navigate("/profile")
+                
             } catch (error) {
                 console.log(error)
             }
         }
-        if(myProfile.username) {myActivities()}
-    }, [myProfile])
+    // useEffect(() => {
+    //     async function myActivities() {
+    //         try {
+    //             const response = await fetch (`https://fitnesstrac-kr.herokuapp.com/api/activities/${myProfile.username}/routines`, {
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 }
+    //             })
+    //             const data = await response.json();
+    //             console.log(data)
+    //             setPersonalActivities(data)
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     if(myProfile.username) {myActivities()}
+    // }, [myProfile])
+
+    function logOut(event) {
+        localStorage.removeItem("token")
+        navigate("/")
+    }
     return (
         <div>
-<<<<<<< HEAD
+
             <h3 id="profile">My Profile</h3>
             <div id="profile-items">
-=======
-            <h3>Profile page</h3>
-            <div>
-                <h3>Your Routines</h3>
->>>>>>> f6a6d5609eb25b2a0597dbff68569cfc5e81228d
+
+            
                 {
                     routineArray.length ? routineArray.map((routine, idx) =>{
                         return <div key={idx}>
                             <h4>{routine.name}</h4>
                             <p>{routine.goal}</p>
+                            <button onClick={(e) => {
+                                e.preventDefault()
+                                deleteButton(routine.id)}}>Delete</button>
                             <Link to={`/editroutine/${routine.rotuineId}`}>Edit Routine</Link>
                         </div>
                         
                     }) : <p>There are no Routines to view</p>
                 }
                 </div>
-<<<<<<< HEAD
+
+
                 <div id="profile-items">
-=======
+
                 <div>
+
                     <h3>Your Activities</h3>
->>>>>>> f6a6d5609eb25b2a0597dbff68569cfc5e81228d
+
                 {
                     activitiesArray.length ? activitiesArray.map((activity, idx) => {
                         return <div key={idx}>
@@ -123,9 +155,11 @@ const Profile = () => {
                         </div>
                     }) : <p>There are no Activities to view</p>
                 }
+
             </div>
             <div id="profile-items"><Link to="/createroutine">Create New Routine</Link></div>
             <div id="profile-items"><Link to="/createactivities">Create New Activity</Link></div>
+
         </div>
     )
 };

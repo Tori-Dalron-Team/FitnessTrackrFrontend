@@ -5,7 +5,7 @@ import {Link, useOutletContext, useParams } from "react-router-dom";
 const apiBaseURL = "https://fitnesstrac-kr.herokuapp.com/api";
 
 const Routines = () => {
-    const [routine, setRoutine] = useState()
+    const [routine, setRoutine] = useOutletContext()
     useEffect(()=> {
         async function getAllRoutines () {
             try{
