@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
 // URL to make template literal
-const apiBaseURL = "https://fitnesstrac-kr.herokuapp.com/api";
+
 
 const Activities = () => {
+    const apiBaseURL = "https://fitnesstrac-kr.herokuapp.com/api";
     const [activity, setActivity] = useState([]);
     useEffect(()=> {
         async function getAllActivities () {
@@ -36,9 +37,10 @@ const Activities = () => {
                 return <div key = {e.id} id="activities-container2"> 
                     <h3>{e.name}</h3>
                     <p>{e.description}</p>
+                    <Link to={`/editActivities/${activity.id}`}>Edit Activity</Link> 
             </div>}) : "No Activities Available To Display! "}
             </div>
-                        
+
         </div>
 
     )

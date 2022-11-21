@@ -132,7 +132,7 @@ const Profile = () => {
                             <button onClick={(e) => {
                                 e.preventDefault()
                                 deleteButton(routine.id)}}>Delete</button>
-                            <Link to={`/editroutine/${routine.id}`}>Edit Routine</Link>
+                            <Link to={`/editRoutine/${routine.id}`}>Edit Routine</Link>
                         </div>
                         
                     }) : <p>There are no Routines to view</p>

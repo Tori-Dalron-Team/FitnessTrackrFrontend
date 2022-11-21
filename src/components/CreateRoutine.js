@@ -101,7 +101,7 @@ const CreateRoutine = () => {
                 <br />
 
 
-                <label>Make Routine Private: </label>
+                <label>Make Routine Public: </label>
                 <input required placeholder="Make Public" value={isPublic} onChange={updateIsPublic} type="checkbox"/>
             
                 <br />

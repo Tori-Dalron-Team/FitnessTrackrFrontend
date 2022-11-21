@@ -3,7 +3,7 @@ import { useOutletContext, useNavigate, useParams } from 'react-router';
 
 
 const EditActivity = () => {
-    const [isPublic, setIsPublic] = useState(true);
+    
     const [editName, setEditName] = useState("");
     const [editDescription, setEditDescription] = useState("");
     const [personalActivities, setPersonalActivities] = useOutletContext();
@@ -22,8 +22,8 @@ const EditActivity = () => {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify({
-                count: editCount,
-                description: editDuration
+                name: editName,
+                description: editDescription
             })
             })
             const editedActivities = await fetch("http://fitnesstrac-kr.herokuapp.com/api/activities")
